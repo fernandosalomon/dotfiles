@@ -1,0 +1,625 @@
+
+;; User vars
+(defpoll USER :interval "24h" `whoami`)
+
+;; Date-Time vars
+(defpoll TIME :interval "1s" `scripts/Date.py --time`)
+(defpoll DATE :interval "1s" `scripts/Date.py --date`)
+(defpoll MONTH_YEAR :interval "1s" `scripts/Date.py --month-year`)
+
+;; Weather vars
+(defpoll WEATHER_TEMP :interval "15m" `scripts/Weather.py --temp`)
+(defpoll WEATHER_ICON_PATH :interval "15m" `scripts/Weather.py --icon`)
+(defpoll WEATHER_STATUS :interval "15m" `scripts/Weather.py --status`)
+
+;; Music vars
+(defpoll SONG :interval "1s" `scripts/music_info.sh --song`)
+(defpoll ARTIST :interval "1s" `scripts/music_info.sh --artist`)
+(defpoll PLAYER_STATUS :interval "1s" `scripts/music_info.sh --status`)
+(defpoll SONG_ELAPSED_TIME :interval "1s" `scripts/music_info.sh --time`)
+(defpoll COVER :interval "1s" `scripts/music_info.sh --cover`)
+(defpoll CURRENT_VOLUME :interval "1s" "amixer -D pulse sget Master | grep 'Left:' | awk -F'[][]' '{ print $2 }' | tr -d '%'")
+(defpoll IS_MUTED :interval "1s" `scripts/music_info.sh --is-muted`)
+
+;;---------------DATE-TIME-PANEL WIDGETS---------------
+
+(defwidget panel []
+  (box 
+    :orientation "vertical"
+    :halign "center"
+    :valign "fill"
+    :spacing 0
+    :space-evenly "false"
+    :class "date-time-panel"
+    (label :class "time" :text TIME)
+    (label :class "date" :text DATE)
+    (label :class "month-year" :text MONTH_YEAR)
+    (calendar :class "calendar" :show-heading "false")
+    (box 
+      :class "weather" 
+      :orientation "horizontal" 
+      :spacing 0
+      :space-evenly "false"
+      :halign "center"
+      (image :class "weather-icon" :path WEATHER_ICON_PATH :image-width 48 :preserve-aspect-ratio "true")
+      (label :class "weather-temp" :text WEATHER_TEMP)
+      (label :class "weather-desc" :text WEATHER_STATUS)
+    )  
+  )
+)
+
+;;--------------SYSTEM PANEL WIDGETS-------------------
+
+(defwidget user []
+  (box 
+    :class "user" 
+    :orientation "vertical" 
+    :spacing 0
+    :space-evenly "false"
+    :hexpand "true"
+    :halign "fill"
+    :valign "center"
+    (box 
+      :class "user-img" 
+      :halign "center"
+      :valign "center"
+      :style "background-image: url('./assets/icons/coffee.png');")
+    (label :class "user-name" :text USER)
+  )
+)
+
+(defwidget places []
+  (box 
+    :class "places" 
+    :orientation "horizontal" 
+    :spacing 32
+    :space-evenly "false"
+
+    (box 
+      :class "" 
+      :orientation "vertical" 
+      :space-evenly "false" 
+      :vexpand "false" 
+      :hexpand "true"
+  
+		  (box 
+        :orientation "horizontal" 
+        :space-evenly "false" 
+        :vexpand "false" 
+        :hexpand "false" 
+			  (button 
+          :class "iconfolder1" 
+          :onclick "./scripts/openPlaces.sh --Documents" 
+          "")
+			  (button 
+          :class "label_folder1" 
+          :onclick "./scripts/openPlaces.sh --Documents" 
+          "Documentos")
+      )
+
+
+		  (box 
+        :orientation "horizontal" 
+        :space-evenly "false" 
+        :vexpand "false" 
+        :hexpand "false" 
+			  (button 
+          :class "iconfolder2" 
+          :onclick "./scripts/openPlaces.sh --Downloads" 
+          "")
+			  (button 
+          :class "label_folder2" 
+          :onclick "./scripts/openPlaces.sh --Downloads" 
+          "Descargas"
+        )
+      )
+
+		  (box 
+        :orientation "horizontal" 
+        :space-evenly "false" 
+        :vexpand "false" 
+        :hexpand "false" 
+			  (button 
+          :class "iconfolder3" 
+          :onclick "./scripts/openPlaces.sh --Imagenes" 
+          ""
+        )
+			  (button 
+          :class "label_folder3" 
+          :onclick "./scripts/openPlaces.sh --Imagenes" 
+          "Imágenes"
+        )
+      )
+    )
+
+    (box
+      :class "" 
+      :orientation "vertical" 
+      :space-evenly "false" 
+      :vexpand "false" 
+      :hexpand "false"
+      :valign "center"
+      :halign "fill"
+		  (box 
+        :orientation "h" 
+        :space-evenly "false" 
+        :vexpand "false" 
+        :hexpand "false"
+			  (button 
+          :class "iconfolder4" 
+          :onclick "./scripts/openPlaces.sh --Pictures" 
+          "")
+			  (button 
+          :class "label_folder4" 
+          :onclick "./scripts/openPlaces.sh --Pictures" 
+          "Pictures"
+        )
+      )
+		  (box 
+        :orientation "h" 
+        :space-evenly "false" 
+        :vexpand "false" 
+        :hexpand "false" 
+			  (button 
+          :class "iconfolder5" 
+          :onclick "./scripts/openPlaces.sh --ProgramFiles" 
+          "ﮛ")
+			  (button 
+          :class "label_folder5" 
+          :onclick "./scripts/openPlaces.sh --ProgramFiles" 
+          "Programas"
+        )
+      )
+		  (box 
+        :orientation "h" 
+        :space-evenly "false" 
+        :vexpand "false" 
+        :hexpand "false" 
+			  (button 
+          :class "iconfolder6" 
+          :onclick "./scripts/openPlaces.sh --config" 
+          "ﮛ")
+			  (button 
+          :class "label_folder6" 
+          :onclick "./scripts/openPlaces.sh --config" 
+          "~/.config"
+        )
+      )
+    )
+  )
+)
+
+(defwidget apps []
+  (box
+    :class "apps"
+    :orientation "horizontal"
+    :space-evenly "true"
+    :spacing 32
+    :halign "fill"
+    :valign "center"
+    :hexpand "true"
+    (box
+      :class "" 
+        :orientation "vertical" 
+        :spacing 16
+        :space-evenly "false"
+      (box
+        :class "" 
+        :orientation "horizontal" 
+        :spacing 16
+        :space-evenly "false"
+        (button
+          :class "btn app-btn"
+          :onclick "./scripts/openApps.sh --firefox"   
+          (image 
+            :path "./assets/icons/apps/firefox.png"
+            :preserve-aspect-ratio "true"
+            :image-width 32
+            :image-height 32
+          )
+        )
+        (button
+          :class "btn app-btn"
+          :onclick "./scripts/openApps.sh --spotify"         
+          (image
+            :path "./assets/icons/apps/spotify.png"
+            :preserve-aspect-ratio "true"
+            :image-width 32
+            :image-height 32
+          )
+        )
+      )
+    
+      (box
+        :class "" 
+        :orientation "horizontal" 
+        :spacing 16
+        :space-evenly "false"
+        (button
+          :class "btn app-btn"
+          :onclick "./scripts/openApps.sh --code"      
+          (image 
+            :path "./assets/icons/apps/code.png"
+            :preserve-aspect-ratio "true"
+            :image-width 32
+            :image-height 32
+          )
+        )
+        (button
+          :class "btn app-btn"
+          :onclick "./scripts/openApps.sh --screenshot"       
+          (image 
+            :path "./assets/icons/apps/screenshot.png"
+            :preserve-aspect-ratio "true"
+            :image-width 32
+            :image-height 32
+          )
+        )
+      )
+    )
+  
+    (box
+      :class "" 
+      :orientation "vertical" 
+      :spacing 16
+      :space-evenly "false"
+      :halign "center"
+      (box
+        :class "" 
+        :orientation "horizontal" 
+        :spacing 16
+        :space-evenly "false"
+        (button
+          :class "btn app-btn"
+          :onclick "./scripts/openApps.sh --search"        
+          (image 
+            :path "./assets/icons/apps/chatgpt.png"
+            :preserve-aspect-ratio "true"
+            :image-width 32
+            :image-height 32
+          )
+        )
+        (button
+          :class "btn app-btn"
+          :onclick "./scripts/openApps.sh --terminal"        
+          (image 
+            :path "./assets/icons/apps/terminal.png"
+            :preserve-aspect-ratio "true"
+            :image-width 32
+            :image-height 32
+          )
+        )
+      )
+    
+      (box
+        :class "" 
+        :orientation "horizontal" 
+        :spacing 16
+        :space-evenly "false"
+        (button
+          :class "btn app-btn"
+          :onclick "./scripts/openApps.sh --files"        
+          (image 
+            :path "./assets/icons/apps/files.png"
+            :preserve-aspect-ratio "true"
+            :image-width 32
+            :image-height 32
+          )
+        )
+        (button      
+          :class "btn app-btn"
+          :onclick "./scripts/openApps.sh --firefox-priv"   
+          (image
+            :path "./assets/icons/apps/private.png"
+            :preserve-aspect-ratio "true"
+            :image-width 32
+            :image-height 32
+          )
+        )
+      )
+    )
+  )
+)
+
+(defwidget system []
+  (box 
+  :class "system"
+  :orientation "horizontal"
+  :space-evenly true
+  :halign "fill"
+  :valign "center"
+  :hexpand "true"
+
+  (box
+    :orientation "vertical"
+    :space-evenly "false"
+    (circular-progress :class "system-cpu"
+                :value {round(EWW_CPU.avg, 0)}
+                :thickness 15
+                :clockwise "true"
+                :start-at 75
+                :height 70
+                :width 70
+                (label :text `${round(EWW_CPU.avg, 0)}%`)
+    )
+    (label :text "CPU")
+  )
+
+  (box
+    :orientation "vertical"
+    :space-evenly "false"
+    (circular-progress :class "system-ram"
+                :value {round(EWW_RAM.used_mem_perc, 0)}
+                :thickness 15
+                :clockwise "true"
+                :start-at 75
+                :height 70
+                :width 70
+    (label :text `${round(EWW_RAM.used_mem_perc, 0)}%`)
+    )
+    (label :text "RAM")
+  )
+
+  (box
+    :orientation "vertical"
+    :space-evenly "false"
+    (circular-progress :class "system-disk"
+                :value {round(EWW_DISK["/"].used_perc, 0)}
+                :thickness 15
+                :clockwise "true"
+                :start-at 75
+                :height 70
+                :width 70
+      (label :text `${round(EWW_DISK["/"].used_perc, 0)}%` )
+    )
+    (label :text "/")
+  )
+
+  (box
+    :orientation "vertical"
+    :space-evenly "false"
+    (circular-progress :class "system-disk"
+                :value {round(EWW_DISK["/"].used_perc, 0)}
+                :thickness 15
+                :clockwise "true"
+                :start-at 75
+                :height 70
+                :width 70
+      (label :text `${round(EWW_DISK["/home"].used_perc, 0)}%` )
+    )
+    (label :text "/home")
+  )
+  )
+)
+
+(defwidget powermenu []
+  (box
+    :class "powermenu"
+    :orientation "vertical"
+    :space-evenly "true"
+    :spacing 8
+    :halign "fill"
+    :valign "fill"
+    :vexpand "true"
+    :hexpand "false"
+    (button
+      :class "btn shutdown-btn"
+      :onclick "poweroff"
+      (image
+        :path "./assets/icons/system/power-off.png"
+        :preserve-aspect-ratio "true"
+        :image-width 24
+        :image-height 24
+      )
+    )
+    (button
+      :class "btn reboot-btn"
+      :onclick "reboot"
+      (image
+        :path "./assets/icons/system/reboot.png"
+        :preserve-aspect-ratio "true"
+        :image-width 24
+        :image-height 24
+      )
+    )
+    (button
+      :class "btn logout-btn"
+      :onclick "loginctl kill-session self"
+      (image
+        :path "./assets/icons/system/logout.png"
+        :preserve-aspect-ratio "true"
+        :image-width 24
+        :image-height 24
+      )
+    )
+  
+  )
+
+)
+
+(defwidget music [] 
+	(box 
+    :class "music" 
+    :orientation "vertical" 
+    :space-evenly "false" 
+    :vexpand "true" 
+    :hexpand "true" 
+    :halign "fill"
+    :spacing 8
+    (box
+      :orientation "horizontal" 
+      :space-evenly "false" 
+      :vexpand "false" 
+      :hexpand "false" 
+      :halign "fill"
+      (box
+        :class "music-cover"
+        :style "background-image: url('${COVER}')"
+        :hexpand "false"  
+      )	
+      (box 
+        :orientation "vertical" 
+        :spacing 4 
+        :space-evenly "false" 
+        :vexpand "false" 
+        :hexpand "true"
+        (label 
+          :halign "center" 
+          :class "song" 
+          :wrap "true" 
+          :limit-width 16
+          :text SONG)
+        (label 
+          :halign "center" 
+          :class "artist" 
+          :wrap "true" 
+          :limit-width 16 
+          :text ARTIST)
+        (box 
+          :orientation "horizontal" 
+          :spacing 8 
+          :halign "center" 
+          :space-evenly "true" 
+          :vexpand "false" 
+          :hexpand "false" 
+          (button 
+            :class "btn_prev" 
+            :onclick "playerctl previous" 
+            "玲")
+          (button 
+            :class "btn_play" 
+            :onclick "playerctl play-pause" 
+            PLAYER_STATUS)
+          (button 
+            :class "btn_next" 
+            :onclick "playerctl next" 
+            "怜")
+        )        
+      )
+    )
+    (eventbox
+      :onscroll "playerctl position +1" 
+      (box 
+        :class "music_bar" 
+        :halign "center" 
+        :vexpand "true" 
+        :hexpand "false"
+        (scale 
+          :min 0 
+          :active "true" 
+          :max 100 
+          :value SONG_ELAPSED_TIME
+        )
+      )	
+    )
+  )
+)
+
+(defwidget volume []
+  (box
+      :class "volume"
+      :orientation "vertical"
+      :space-evenly "false"
+      
+      (scale    
+        :class "volbar" 	  
+        :value {IS_MUTED == true ? 0.0 : CURRENT_VOLUME}
+        :orientation "vertical"      
+        :flipped true 
+        :max 101 
+        :min 0 
+        :onchange "amixer -D pulse sset Master {}%" 
+      )
+      (button   
+        :onclick "pactl set-sink-mute @DEFAULT_SINK@ toggle && ${EWW_CMD} update IS_MUTED = ! IS_MUTED"   
+        :class "volume-icon" 
+        {IS_MUTED == true ? "󰖁" : "󰕾"}
+      )
+  )
+)
+
+;;---------------DATE-TIME PANEL----------------------
+
+(defwindow date-time-panel
+  :monitor 0
+  :windowtype "normal"
+  :geometry (geometry :x 0
+                      :y "10px"
+                      :width "200px"
+                      :height "100px"
+                      :anchor "top center")
+  :stacking "fg"
+  :focusable "false"
+  :exclusive "false"
+  (eventbox
+    :onhoverlost "${EWW_CMD} close-all"
+    (panel)
+  )
+)
+
+;;---------------------------------------------------
+
+
+;;-------------SYSTEM-PANEL-------------------------
+
+(defwindow system-panel
+  :class "system-panel"
+  :monitor 0
+  :windowtype "normal"
+  :geometry (geometry :x 10
+                      :y 5
+                      :width "200px"
+                      :height "100px"
+                      :anchor "top left")
+  :stacking "overlay"
+  :focusable "false"
+  :exclusive "false"
+  (eventbox
+    :onhoverlost "${EWW_CMD} close-all"
+    (box
+      :class "system-panel"
+      :orientation "vertical"
+      :spacing 8
+      :space-evenly "false"
+      
+      (box
+        :orientation "horizontal"
+        :spacing 8
+        :space-evenly "false"
+        :hexpand "true"
+        :halign "fill"
+        (user)
+        (powermenu)
+      )
+      (places)
+      (apps)
+      (system)
+      (box
+        :orientation "horizontal"
+        :space-evenly "false"
+        :halign "fill"
+        :hexpand "true"
+        :spacing 8
+        (box
+        :orientation "vertical"
+        :space-evenly "false"
+        :spacing 8
+        
+        (music)
+        )
+        (box
+          :orientation "horizontal"
+          :class "volume-box"
+          :space-evenly "false"
+          :halign "fill"
+          :hexpand "true"
+          :spacing 20
+          (volume)
+        )
+      )
+    )
+  )
+)
+
+;;---------------------------------------------------
+

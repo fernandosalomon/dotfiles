@@ -1,0 +1,347 @@
+$color1: rgb(201, 166, 240);
+$color1-focus: rgb(148, 81, 225);
+$color2: rgb(135, 220, 235);
+$color2-focus: rgb(86, 162, 238);
+$color3: rgb(249, 226, 175);
+$color3-focus: rgb(242, 190, 80);
+$color4: rgb(237, 144, 169);
+$color4-focus: rgb(223, 58, 102);
+$color5: rgb(245, 194, 232);
+$color6: rgb(163, 190, 140);
+$color6-focus: rgb(113, 147, 83);
+$color7: rgb(180, 190, 254);
+$color7-focus: rgb(129, 146, 253); 
+$color10: rgb(176, 180, 188);
+$color11: rgb(117, 117, 117);
+$color-bg-1: rgb(15, 18, 29);
+$color-bg-2: rgb(30, 30, 46);
+$font: JetBrainMono Nerd Font;
+
+* {
+  all: unset; // Unsets everything so you can style everything from scratch
+}
+
+//------------DATE-TIME PANEL-----------------
+
+.date-time-panel{
+  background-color: $color-bg-2;
+  font-family: $font;
+  border-radius: 7px;
+  border: 2px solid $color3; 
+  padding: 12px;
+}
+
+.time{
+  font-size: 4.8rem;
+  font-weight: bold;
+  padding: 0 48px;
+  min-width: 200px;
+  color: $color1;
+}
+
+.date{
+  font-size: 2rem;
+  padding-bottom: 1rem ;
+  font-weight: bold;
+  color: $color2;
+}
+
+.month-year{
+  font-size: 2.0rem;
+  font-weight: bold;
+  padding-top: 12px;
+  color: $color6;
+}
+
+.calendar{
+  padding: 4px;
+  font-weight: normal;
+  font-size: 1.2rem;
+
+  &.highlight{
+    color: $color6;
+  }
+  
+  &:indeterminate{
+    color: $color11;
+  }
+}
+
+.weather-icon {
+  min-width: 32px;
+  min-height: 32px;
+}
+
+.weather-temp {
+  font-size: 24px;
+  font-weight: bold;
+  padding: 12px;
+  color: $color1;
+}
+
+.weather-desc {
+  font-size: 18px;
+  color: $color3;
+}
+
+//------------------------------------------
+
+//-----------SYSTEM PANEL------------------
+
+.system-panel{
+  background-color: $color-bg-2;
+  font-family: $font;
+  padding: 16px;
+  border-radius: 7px;
+  border: 2px solid $color3; 
+}
+
+.user-img{
+  background-repeat: no-repeat;
+	background-size: 120px;
+	min-height: 120px;
+	min-width: 120px;
+  border: 2px solid $color2-focus;
+  border-radius: 50%;
+  margin: 12px 0;
+}
+
+.user{
+  background-color: $color-bg-1;
+  padding: 32px;
+  border-radius: 14px;
+}
+
+.user-name{
+    font-size: 1.8rem;
+}
+
+.places{
+  background-color: $color-bg-1;
+  padding: 32px;
+  border-radius: 14px;
+}
+
+.iconfolder1, .iconfolder2, .iconfolder3, .iconfolder4, .iconfolder5, .iconfolder6  {
+	font-family: Iosevka Nerd Font;
+	font-size : 24px;
+	font-weight : normal;
+}
+.iconfolder1 {
+	color: $color4;
+}
+.iconfolder2 {
+	color: $color6;
+}
+.iconfolder3 {
+	color: $color3;
+}
+.iconfolder4 {
+	color: $color2;
+}
+.iconfolder5 {
+	color: $color1;
+}
+.iconfolder6 {
+	color: $color5;
+}
+
+.label_folder1, .label_folder2, .label_folder3, .label_folder4, .label_folder5, .label_folder6  {
+	font-size : 16px;
+	font-weight : bold;
+  margin-left: 15px;
+}
+.label_folder1 {
+	color: $color4;
+}
+.label_folder2 {
+	color: $color6;
+}
+.label_folder3 {
+	color: $color3;
+}
+.label_folder4 {
+	color: $color2;
+}
+.label_folder5 {
+	color: $color1;
+}
+.label_folder6 {
+	color: $color5;
+}
+
+.btn{
+  padding: 10px 12px;
+  border-radius: 7px;
+  
+}
+
+.apps{
+  background-color: $color-bg-1;
+  padding: 32px;
+  border-radius: 14px;
+}
+
+.app-btn{
+  background-color: $color7;
+
+  &:hover{
+    background-color: $color7-focus;
+  }
+}
+
+.powermenu{
+  background-color: $color-bg-1;
+  padding: 32px;
+  border-radius: 14px;
+}
+
+.shutdown-btn{
+  background-color: $color4;
+
+  &:hover{
+    background-color: $color4-focus;
+  }
+}
+
+.reboot-btn{
+  background-color: $color3;
+
+  &:hover{
+    background-color: $color3-focus;
+  }
+}
+
+.logout-btn{
+  background-color: $color6;
+
+  &:hover{
+    background-color: $color6-focus;
+  }
+}
+
+.system{
+  background-color: $color-bg-1;
+  padding: 16px;
+  border-radius: 14px;
+}
+
+.system-icon{
+  font-size: 1.2rem;
+}
+
+.system-cpu{
+  color: $color1;
+}
+
+.system-ram{
+  color: $color2;
+}
+
+.system-disk{
+  color: $color6;
+}
+
+.system-bat{
+  color: $color3;
+}
+
+.music{
+  background-color: $color-bg-1;
+  background-size: 120px;
+	min-height: 120px;
+	min-width: 120px;
+	border-radius: 14px;
+  padding: 12px;
+}
+
+.song {
+	color: $color2;
+	font-size : 24px;
+	font-weight : bold;
+	margin : 15px 0px 0px 0px;
+}
+
+.artist {
+	color: $color3;
+	font-size : 16px;
+	font-weight : normal;
+}
+
+.btn_prev, .btn_play, .btn_next {
+	font-family: Iosevka Nerd Font;
+}
+.btn_prev {
+	color: $color3;
+	font-size : 32px;
+	font-weight : normal;
+}
+.btn_play {
+	color: $color6;
+	font-size : 48px;
+	font-weight : bold;
+}
+.btn_next {
+	color: $color3;
+	font-size : 32px;
+	font-weight : normal;
+}
+
+.music_bar scale trough highlight {
+	all: unset;
+	background-color: $color7;
+	border-radius: 8px;
+}
+.music_bar scale trough {
+	all: unset;
+	background-color: $color11;
+	border-radius: 8px;
+	min-height: 15px;
+	min-width: 225px;
+}
+
+.music-cover{
+  background-size: 110px 110px;
+  background-repeat: no-repeat;
+  background-position: center;
+  min-width: 120px;
+  min-height: 120px;
+  margin-right: 8px;
+}
+
+.song{
+  font-size: 1rem;
+}
+
+.artist{
+  font-size: 1rem;
+}
+
+.volume-box{
+  background-color: $color-bg-1;
+  border-radius: 14px;
+  padding: 12px;
+}
+
+.volume-icon{
+  font-size: 1.8rem;
+  color: $color6;
+  padding-left: 5px;
+}
+
+scale trough {
+  all: unset;
+  background-color: $color-bg-1;
+  border-radius: 5px;
+  min-height: 130px;
+  min-width: 15px;
+  padding-left: 12px;
+  padding-bottom: 5px;
+}
+
+.volbar trough highlight {
+  background-color: $color2;
+  border-radius: 5px;
+}
+
+//------------------------------------------
