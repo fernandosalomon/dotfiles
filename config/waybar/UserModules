@@ -1,0 +1,55 @@
+//* ---- 💫 https://github.com/JaKooLit 💫 ---- *//
+/* Waybar Modules Extras */
+
+/* This is where you can add Extra Modules you wish. copy.sh will try to restore*/
+/* this file along with the unique configs and styles. */
+/* IMPORTANT, be mindful with , or ". else waybar will not start */
+
+{
+"network#2": {
+	"interval": 1,
+	"format": "{ifname}",
+	"format-wifi": "{icon} {ipaddr}",
+	"format-ethernet": "󰌘 {ifname}",
+	"format-disconnected": "󰌙",
+	"tooltip-format": " {bandwidthUpBytes}  {bandwidthDownBytes}",
+	"format-linked": "󰈁 {ifname} (No IP)",
+	"tooltip-format-wifi": "{essid} \n {bandwidthUpBytes} \n {bandwidthDownBytes}",
+	"tooltip-format-ethernet": "{ifname} 󰌘",
+	"tooltip-format-disconnected": "󰌙 Disconnected",
+	"min-length": 24,
+	"max-length": 48,
+	"format-icons": [
+		"󰤯", "󰤟", "󰤢", "󰤥", "󰤨"
+	]
+},
+
+"clock#6": {
+    //"format": "{:%A, %I:%M %P}", // AM PM format
+    "format": "{:%R | %A, %d %B %Y}", // 24H
+    "tooltip": false,
+    "on-click":  "eww daemon && eww open date-time-panel",
+},
+
+"custom/syspanel": {
+    "format": "   ",
+    "on-click": "eww daemon && eww --no-daemonize open system-panel" ,
+    "tooltip": true,
+	"tooltip-format": "Left Click: Open System Panel",
+},
+
+"custom/playerctl#2": {
+	"format": "<span>{}</span>",
+	"return-type": "json",
+	"max-length": 25,
+	"exec": "playerctl -a metadata --format '{\"text\": \"{{markup_escape(title)}} - {{artist}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
+	"on-click-middle": "playerctl play-pause",
+	"on-click": "playerctl previous",
+	"on-click-right": "playerctl next",
+	"scroll-step": 5.0,
+	"on-scroll-up": "$HOME/.config/hypr/scripts/Volume.sh --inc",
+	"on-scroll-down": "$HOME/.config/hypr/scripts/Volume.sh --dec",
+	"smooth-scrolling-threshold": 1,
+},
+
+}
