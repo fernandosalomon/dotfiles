@@ -180,10 +180,5 @@ configuration {
 */
 }
 
-
-
-
-
-//@theme "~/.config/rofi/themes/rounded-nord-dark.rasi"
-//@theme "~/.config/rofi/themes/nord.rasi"
-@theme "~/.config/rofi/themes/catppuccin-macchiato.rasi"
+//@theme "~/.config/rofi/themes/catppuccin-macchiato.rasi"
+@theme "~/.config/rofi/themes/catppuccin-default.rasi"

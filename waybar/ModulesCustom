@@ -134,7 +134,7 @@
     
 "custom/power": {
 	"format": " ⏻ ",
-	"on-click": "$HOME/.config/rofi/powermenu/type-5/powermenu.sh",
+	"on-click": "$HOME/.config/rofi/scripts/powermenu.sh",
 	"on-click-right": "$HOME/.config/hypr/scripts/ChangeBlur.sh",
 	"tooltip": true,
 	"tooltip-format": "Left Click: Logout Menu\nRight Click: Change Blur",
