@@ -7,3 +7,5 @@ ln -s $HOME/.dotfiles/waybar $HOME/.config/waybar
 ln -s $HOME/.dotfiles/hypr $HOME/.config/hypr
 ln -s $HOME/.dotfiles/kitty $HOME/.config/kitty
 ln -s $HOME/.dotfiles/swaync $HOME/.config/swaync
+ln -s $HOME/.dotfiles/zsh $HOME/.config/zsh
+
