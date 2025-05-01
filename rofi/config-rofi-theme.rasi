@@ -19,6 +19,7 @@ mainbox {
 entry {
   expand: true;
   placeholder: " ⬇️  Select Which Rofi Theme wanted to apply";
+  margin-bottom: 6;
 }
 
 /* ---- Listview ---- */
@@ -39,6 +40,6 @@ element-icon {
 element-text {
   horizontal-align: 0.0;
   vertical-align: 0.5;
-  margin: 0px;
+  margin: 6px 0;
   padding: 0px;
 }
