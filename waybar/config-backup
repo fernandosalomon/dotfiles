@@ -1,3 +1,6 @@
+/* ---- 💫 https://github.com/JaKooLit 💫 ---- */
+
+// ### DEFAULT - Top ### //
 {
 "include": [
   "$HOME/.config/waybar/Modules",
@@ -19,23 +22,28 @@
 "margin-right": 8,
 
 "modules-left": [
-        "custom/syspanel",
 	"hyprland/workspaces#rw",
-	"custom/cava_mviz",	
+	"custom/separator#dot-line",
+	"custom/cava_mviz",
+	"custom/separator#blank",
+	"custom/playerctl",
+	"custom/separator#blank_2",
+	"hyprland/window",
 	],
-	
-"modules-center":[
-      "clock#6",
-],
+
+"modules-center": [
+	"clock#4",
+	],
 
 "modules-right": [
-	"group/connections",
-	"cpu",
-	"memory",
-	"disk",
-	"temperature",
+	"network#speed",
+	"custom/separator#dot-line",
 	"group/audio",
-	"custom/swaync",
-	"custom/power",	
+	"custom/separator#dot-line",
+	"temperature",
+	"custom/separator#dot-line", 
+	"tray",
+	"custom/separator#line",
+	"group/power",
 	],
 }
