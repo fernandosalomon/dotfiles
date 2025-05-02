@@ -4,7 +4,7 @@
 
 # WALLPAPERS PATH
 terminal=kitty
-wallDIR="$HOME/Pictures/wallpapers"
+wallDIR="$HOME/.config/hypr/wallpapers/"
 SCRIPTSDIR="$HOME/.config/hypr/scripts"
 wallpaper_current="$HOME/.config/hypr/wallpaper_effects/.wallpaper_current"
 
@@ -168,7 +168,7 @@ apply_image_wallpaper() {
     swww-daemon --format xrgb &
   fi
 
-  swww img -o "$focused_monitor" "$image_path" $SWWW_PARAMS
+  swww img -o $focused_monitor $image_path $SWWW_PARAMS
 
   # Run additional scripts
   "$SCRIPTSDIR/WallustSwww.sh"
@@ -213,7 +213,7 @@ main() {
 
   # Search for the selected file in the wallpapers directory, including subdirectories
   selected_file=$(find "$wallDIR" -iname "$choice_basename.*" -print -quit)
-
+echo $selected_file
   if [[ -z "$selected_file" ]]; then
     echo "File not found. Selected choice: $choice"
     exit 1
