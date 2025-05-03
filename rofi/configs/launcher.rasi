@@ -1,4 +1,6 @@
-@import                          "catppuccin-default.rasi"
+@import "~/.config/rofi/config.rasi"
+@import "catppuccin-default.rasi"
+
 
 window{
   transparency: "real";
@@ -8,7 +10,7 @@ window{
   width: 800px;
   x-offset: 0px;
   y-offset: 0px;
-
+  font: "CaskaydiaCove 16";
   enabled: true;
   margin: 0;
   padding: 16px 32px;
@@ -54,9 +56,10 @@ textbox-prompt-colon {
   enabled: true;
   padding: 0;
   expand: false;
-  str: "󰥩 ";
+  font: "Iosevka Nerd Font 18";
+  str: " ";
   background-color: inherit;
-  text-color:@rosewater;
+  text-color:@text;
 }
 
 entry {
@@ -144,7 +147,7 @@ element selected.normal {
   background-color: transparent;
   text-color: @mauve;
   border: 2px solid;
-  border-color: @flamingo;
+  border-color: @mauve;
   border-radius: 7px;
 }
 
@@ -152,7 +155,7 @@ element selected.active {
   background-color: transparent;
   text-color: @mauve;
   border: 2px solid;
-  border-color: @flamingo;
+  border-color: @mauve;
   border-radius: 7px;
 }
 
