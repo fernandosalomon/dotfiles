@@ -1,0 +1,111 @@
+@import "~/.config/rofi/config.rasi"
+@import "catppuccin-default.rasi"
+
+window{
+  transparency: "real";
+  location: center;
+  anchor: center;
+  fullscreen: false;
+  width: 800px;
+  height: 500px;
+  x-offset: 0px;
+  y-offset: 0px;
+  font: "CaskaydiaCove 16";
+  enabled: true;
+  margin: 0;
+  padding: 0;
+  border: 2px solid;
+  border-color: @mauve;
+  border-radius: 7px;
+  cursor: "default";
+  background-color: @mantle;
+}
+
+mainbox{
+  enabled: true;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  children: ["textbox", "listview"];
+}
+
+textbox{
+  margin: 16px;
+  enable: true;
+  expand: false;
+  horizontal-align: 0.5;
+  vertical-align: 0.5;
+  font: "CaskaydiaCove Bold 24";
+  text-color: @text;
+  content: "Wallpapers";
+  }
+
+listview {
+  enabled: true;
+  orientation: vertical;
+  columns: 4;
+  lines: 3;
+  cycle: true;
+  scrollbar: false;
+  flow: horizontal;
+  reverse: false;
+  spacing: 10px;
+  margin: 0px;
+  padding: 10px;
+  background-color: transparent;
+  border: 0px solid;
+  cursor: "default";
+  horizontal-align: 0.5;
+  vertical-align: 0.5;
+  expand: true;
+}
+
+element {
+  enabled: true;
+  spacing: 0px;
+  margin: 0px;
+  padding: 0px;
+  background-color: transparent;
+  text-color: @text;
+  cursor: pointer;
+  children: [ "element-icon" ];
+}
+
+element selected.normal {
+  background-color: transparent;
+  border: 2px solid;
+  border-color: @mauve;
+  border-radius: 7px;
+}
+
+element selected.active {
+  background-color: transparent;
+  border: 2px solid;
+  border-color: @mauve;
+  border-radius: 7px;
+}
+
+element normal.normal,
+element normal.active,
+element normal.urgent,
+element alternate.normal,
+element alternate.active,
+element alternate.urgent {
+  background-color: transparent;
+}
+
+element-text{
+  enable: false;
+ }
+
+element-icon {
+  background-color: transparent;
+  size: 180px;
+  cursor: inherit;
+  vertical-align: 0.5;
+  expand: true;
+}
+
+
+
+

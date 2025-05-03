@@ -2,48 +2,48 @@
  /* wallust template - colors-rofi */
 
 * {
-active-background: #7E737F;
-active-foreground: #FBFAF8;
-normal-background: #000006;
-normal-foreground: #FBFAF8;
-urgent-background: #B88975;
-urgent-foreground: #FBFAF8;
+active-background: #9B4167;
+active-foreground: #EECCC7;
+normal-background: #251B20;
+normal-foreground: #EECCC7;
+urgent-background: #BA6560;
+urgent-foreground: #EECCC7;
 
-alternate-active-background: #7F6764;
-alternate-active-foreground: #FBFAF8;
-alternate-normal-background: #000006;
-alternate-normal-foreground: #FBFAF8;
-alternate-urgent-background: #000006;
-alternate-urgent-foreground: #FBFAF8;
+alternate-active-background: #7C4E65;
+alternate-active-foreground: #EECCC7;
+alternate-normal-background: #251B20;
+alternate-normal-foreground: #EECCC7;
+alternate-urgent-background: #251B20;
+alternate-urgent-foreground: #EECCC7;
 
-selected-active-background: #B88975;
-selected-active-foreground: #FBFAF8;
-selected-normal-background: #B88975;
-selected-normal-foreground: #FBFAF8;
-selected-urgent-background: #7E737F;
-selected-urgent-foreground: #FBFAF8;
+selected-active-background: #BA6560;
+selected-active-foreground: #EECCC7;
+selected-normal-background: #BA6560;
+selected-normal-foreground: #EECCC7;
+selected-urgent-background: #9B4167;
+selected-urgent-foreground: #EECCC7;
 
-background-color: #000006;
+background-color: #251B20;
 background: rgba(0,0,0,0.7);
-foreground: #FBFAF8;
-border-color: #7E737F;
+foreground: #EECCC7;
+border-color: #9B4167;
 
-color0: #000006;
-color1: #282C3B;
-color2: #2F303D;
-color3: #5F4D4B;
-color4: #5E565F;
-color5: #8A6758;
-color6: #B8B5B0;
-color7: #F2F0EC;
-color8: #A9A8A5;
-color9: #363B4F;
-color10: #3E4051;
-color11: #7F6764;
-color12: #7E737F;
-color13: #B88975;
-color14: #F5F1EA;
-color15: #F2F0EC;
+color0: #4D4246;
+color1: #1F2252;
+color2: #272551;
+color3: #5D3A4C;
+color4: #74314D;
+color5: #8C4C48;
+color6: #9B5246;
+color7: #DFAEA6;
+color8: #9C7974;
+color9: #2A2E6D;
+color10: #34326C;
+color11: #7C4E65;
+color12: #9B4167;
+color13: #BA6560;
+color14: #CF6D5E;
+color15: #DFAEA6;
 
 
 }
