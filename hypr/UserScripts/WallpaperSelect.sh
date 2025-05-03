@@ -26,7 +26,7 @@ if ! command -v bc &>/dev/null; then
 fi
 
 # Variables
-rofi_theme="$HOME/.config/rofi/config-wallpaper.rasi"
+rofi_theme="$HOME/.config/rofi/WallpaperSelect-config.rasi"
 focused_monitor=$(hyprctl monitors -j | jq -r '.[] | select(.focused) | .name')
 
 # Ensure focused_monitor is detected
